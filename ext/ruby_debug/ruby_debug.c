@@ -1847,7 +1847,7 @@ context_frame_id(int argc, VALUE *argv, VALUE self)
     cfp = GET_CFP;
     if (cfp->iseq == NULL || cfp->iseq->defined_method_id == 0) return(Qnil);
 
-#ifdef RUBY_VERSION_1_9_1
+#ifdef RUBY_VERSION_1_9
     return(RUBYVM_CFUNC_FRAME_P(cfp) ? ID2SYM(cfp->method_id) : ID2SYM(cfp->iseq->defined_method_id));
 #else
     return(RUBYVM_CFUNC_FRAME_P(cfp) ? ID2SYM(cfp->me->called_id) : ID2SYM(cfp->iseq->defined_method_id));
